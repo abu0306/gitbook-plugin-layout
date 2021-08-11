@@ -1,0 +1,22 @@
+{
+  "name": "gitbook-plugin-layout",
+  "version": "0.0.1",
+  "description": "This is layout for gitbook",
+  "engines": {
+    "gitbook": ">1.x.x"
+  },
+  "gitbook": {
+    "properties": {
+      "myConfigKey": {
+        "type": "string",
+        "default": "it's the default value",
+        "description": "It defines my awesome config!"
+      }
+    }
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "fs": "^0.0.1-security",
+    "nodejscore": "^0.5.0"
+  }
+}
