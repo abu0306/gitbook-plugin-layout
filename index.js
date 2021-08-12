@@ -53,23 +53,16 @@ function summaryLogo(pluginsConfig, $, value) {
 
     const html_path = pluginsConfig.html_path || ''
     const css_path = pluginsConfig.css_path || ''
-
+    const root_class = pluginsConfig.root_class || ''
 
     if (fs.existsSync(html_path)) {
-
         const target = fs.readFileSync(html_path, {encoding: 'utf-8'})
         const target_css = fs.readFileSync(css_path, {encoding: 'utf-8'})
-        const $target = cheerio.load(target)
-
         $('head').append('<style type="text/css">' + target_css + '</style>')
-
+        $('.' + root_class).remove()
         $('body .book-summary').prepend(target)
-
         fs.writeFileSync(value.url, $.root().html(), {
             encoding: 'utf-8'
         })
-
-
     }
-
 }
