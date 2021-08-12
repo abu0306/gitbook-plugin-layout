@@ -55,7 +55,7 @@ function summaryLogo(pluginsConfig, $, value) {
     const css_path = pluginsConfig.css_path || ''
     const root_class = pluginsConfig.root_class || ''
 
-    if (fs.existsSync(html_path)) {
+    if (fs.existsSync(html_path) && root_class != "") {
         const target = fs.readFileSync(html_path, {encoding: 'utf-8'})
         const target_css = fs.readFileSync(css_path, {encoding: 'utf-8'})
         $('head').append('<style type="text/css">' + target_css + '</style>')
